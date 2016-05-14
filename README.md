@@ -10,6 +10,9 @@ commands
 
 Commands implementations in bash
 
+[clear](./commands/clear) - Pretty dumb terminal clean command<br>
+[true](./commands/true) and [false](./commands/false) - Easiest implementation of true and false commands
+
 ---
 
 games
