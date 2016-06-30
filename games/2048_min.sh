@@ -17,10 +17,10 @@ for n in $5 $6 $7 $8
 {
 L=( ${M[$n+$1]} ${M[$n+$2]} ${M[$n+$3]} ${M[$n+$4]} )
 a;s;a
-M[$n+$1]=${L[0]}
-M[$n+$2]=${L[1]}
-M[$n+$3]=${L[2]}
-M[$n+$4]=${L[3]}
+for i in {1..4}
+{
+M[$n+${!i}]=${L[$i-1]}
+}
 }
 }
 S="%s\n|%4s|%4s|%4s|%4s|\n"
@@ -29,17 +29,20 @@ D="---------------------"
 e=echo
 w="$p $S $D"
 q(){
-$w ${M[$1]:-"."} ${M[$2]:-"."} ${M[$3]:-"."} ${M[$4]:-"."}
+$w `for i in {1..4}
+{
+echo ${M[${!i}]:-"."}
+}`
 }
 m="0 4 8 12"
 b(){
 clear
 for i in $m
 {
-q $i+{0,1,2,3}
+q $i+{0..3}
 }
 $e $D
-$e "Moves: w,a,s,d, Quit: q"
+$e Moves: w,a,s,d, Quit: q
 }
 R(){
 n=$(($RANDOM%16))
@@ -68,7 +71,7 @@ for i in {0..15}
 return $F
 }
 o(){
-until [ "$REPLY" = "y" -o "$REPLY" = "n" ]
+until [ "$REPLY" = y -o "$REPLY" = n ]
 do
 read -n 1 -p "GAME OVER! Play again? (y/n)"
 done
