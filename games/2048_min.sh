@@ -3,21 +3,22 @@ h="1 2 3"
 a(){
 for i in $h $h $h
 {
-[ -n "${L[$i]}" ] && [ -z "${L[$i-1]}" ] && L[$i-1]=${L[$i]} && L[$i]=""
+[ -n "${L[$i]}" ] && [ -z "${L[$i-1]}" ] && L[$i-1]=${L[$i]} && L[$i]=
 }
 }
 s(){
 for i in $h
 {
-[ "${L[$i]}" == "${L[$i-1]}" ] && [ -n "${L[$i]}" ] && L[$i-1]=$((${L[$i]}*2)) && L[$i]=""
+[ -n "${L[$i]}" ] && [ "${L[$i]}" == "${L[$i-1]}" ] && L[$i-1]=$((${L[$i]}*2)) && L[$i]=
 }
 }
+e=echo
 _(){
 for n in $5 $6 $7 $8
 {
 L=( `for i in {1..4}
 {
-echo ${M[$n+${!i}]}
+$e ${M[$n+${!i}]}
 }`
 )
 a;s;a
@@ -29,13 +30,12 @@ M[$n+${!i}]=${L[$i-1]}
 }
 S="%s\n|%4s|%4s|%4s|%4s|\n"
 p=printf
-D="---------------------"
-e=echo
+D=---------------------
 w="$p $S $D"
 q(){
 $w `for i in {1..4}
 {
-echo ${M[${!i}]:-"."}
+$e ${M[${!i}]:-.}
 }`
 }
 m="0 4 8 12"
@@ -66,13 +66,13 @@ M[$i]=
 }
 t;t;b
 }
+r=return
 c(){
-F=1
 for i in {0..15}
 {
-[ -z "${M[$i]}" ] && F=0
+[ -z "${M[$i]}" ] && $r 0
 }
-return $F
+$r 1
 }
 o(){
 until [ "$REPLY" = y -o "$REPLY" = n ]
@@ -80,7 +80,7 @@ do
 read -n 1 -p "GAME OVER! Play again? (y/n)"
 done
 case $REPLY in
-y) p; return 1 ;;
+y) p; $r 1 ;;
 n) exit ;;
 esac
 }
