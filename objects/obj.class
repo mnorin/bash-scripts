@@ -1,0 +1,30 @@
+# Class named "obj" for bash Object
+
+# property
+obj_properties=()
+
+# properties IDs
+fileName=0
+fileSize=1
+
+obj.method1(){
+    echo obj method1 called
+}
+
+obj.property(){
+    if [ "$2" == "=" ]
+    then
+	obj_properties[$1]=$3
+    else
+	echo ${obj_properties[$1]}
+    fi
+}
+
+obj.fileName(){
+    if [ "$1" == "=" ]
+    then
+	obj.property fileName = $2
+    else
+	obj.property fileName
+    fi
+}
