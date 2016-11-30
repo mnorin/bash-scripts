@@ -20,7 +20,7 @@ games
 
 Games written in bash
 
-[15.sh](./games/15.sh) - Game 15 written in bash
+[15.sh](./games/15.sh) - Game 15 written in bash<br>
 [2048.sh](./games/2048.sh) - Game 2048 in 2048 bytes<br>
 [2048_min.sh](./games/2048_min.sh) - minimized version (A bit bigger than 1 kilobyte)
 
