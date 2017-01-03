@@ -22,4 +22,4 @@ exec 3<>/dev/tcp/$HOST/$PORT
 echo -e "GET $PATH$FILENAME $HEADERS" >&3
 /bin/cat <&3 > $SAVENAME
 
-/bin/sed -i $SAVENAME -e '/^.*\r$/d; /^\r$/q'
+/bin/sed -i $SAVENAME -e '1,/^\r$/d'
