@@ -39,3 +39,4 @@ Different useful scripts written in bash (network scanner, etc...)
 [portscan.sh](./utils/portscan.sh) - Simple TCP ports scanner in plain bash<br>
 [power.sh](./utils/power.sh) - Example of power management from script<br>
 [pwdgen.sh](./utils/pwdgen.sh) - Simple password generator<br>
+[tsklst.sh](./utils/tsklst.sh) - Implementation of script that keeps data it works with inside itself<br>
