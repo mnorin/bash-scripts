@@ -11,9 +11,9 @@ then
     exit
 fi
 
-START_PORT=$2;[ -z "$START_PORT" ] && START_PORT=1
-END_PORT=$3;[ -z "$END_PORT" ] && END_PORT=1024
-echo Scanning $1 \(ports $START_PORT to $END_PORT\)
+START_PORT=${2:-1}
+END_PORT=${3:-1024}
+echo "Scanning $1 (ports $START_PORT to $END_PORT)"
 
 PORT_PROTOCOL="tcp"
 
