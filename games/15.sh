@@ -79,17 +79,17 @@ do
     echo "Use w,a,s,d to move, q for quit"
     read -n 1 -s
     case $REPLY in
-	w)
+	s)
 	    [ $EMPTY -lt 12 ] && exchange $(( $EMPTY + 4 ))
 	;;
-	a)
+	d)
 	    COL=$(( $EMPTY % 4 ))
 	    [ $COL -lt 3 ] && exchange $(( $EMPTY + 1 ))
 	;;
-	s)
+	w)
 	    [ $EMPTY -gt 3 ] && exchange $(( $EMPTY - 4 ))
 	;;
-	d)
+	a)
 	    COL=$(( $EMPTY % 4 ))
 	    [ $COL -gt 0 ] && exchange $(( $EMPTY - 1 ))
 	;;
