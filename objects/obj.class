@@ -7,8 +7,8 @@ obj_properties=()
 fileName=0
 fileSize=1
 
-obj.method1(){
-    echo obj method1 called
+obj.sayHello(){
+    echo Hello
 }
 
 obj.property(){
