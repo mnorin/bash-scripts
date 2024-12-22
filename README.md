@@ -40,3 +40,4 @@ Different useful scripts written in bash (network scanner, etc...)
 [power.sh](./utils/power.sh) - Example of power management from script<br>
 [pwdgen.sh](./utils/pwdgen.sh) - Simple password generator<br>
 [tsklst.sh](./utils/tsklst.sh) - Implementation of script that keeps data it works with inside itself<br>
+[netmask-conv.sh](./utils/netmask-conv.sh) - Script that converts IP address and netmask in xxx.xxx.xxx.xxx format to network address e.g. 192.168.1.0/24<br>
